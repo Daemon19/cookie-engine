@@ -23,7 +23,15 @@ namespace cookie
 
         operator SDL_Surface *() { return surface_; }
 
+        void get_rgb(int x, int y, Uint8 &r, Uint8 &g, Uint8 &b);
+        void set_rgb(int x, int y, Uint8 r, Uint8 g, Uint8 b);
+
         int w() const { return surface_->w; }
         int h() const { return surface_->h; }
+        SDL_PixelFormat *format() const { return surface_->format; }
+
+    private:
+        Uint32 get_pixel(int x, int y);
+        void set_pixel(int x, int y, Uint32 pixel);
     };
 }
