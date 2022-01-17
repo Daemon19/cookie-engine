@@ -81,4 +81,17 @@ namespace cookie
         }
         return true;
     }
+
+    bool Window::DrawFillRect(const SDL_Rect &rect, const SDL_Color &color)
+    {
+        if (!set_draw_color(color))
+            return false;
+        if (SDL_RenderFillRect(renderer_, &rect) < 0)
+        {
+            log::SdlError("Gagal menggambar kotak terisi");
+            return false;
+        }
+        return true;
+    }
+
 }

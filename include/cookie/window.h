@@ -26,6 +26,7 @@ namespace cookie
         void Update();
 
         bool DrawTexture(SDL_Texture *texture, const SDL_Rect *src_rect, const SDL_Rect *dst_rect);
+        bool DrawFillRect(const SDL_Rect &rect, const SDL_Color &color);
         bool set_draw_color(const SDL_Color &color);
 
         operator SDL_Window *() { return window_; }
