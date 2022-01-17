@@ -1,15 +1,7 @@
 workspace "cookie-engine"
     configurations {"Debug", "Release"}
-    location "build"
-
-project "cookie_engine"
-    kind "StaticLib"
     language "C++"
-    targetdir "bin/%{cfg.buildcfg}"
-
-    includedirs {"include"}
     links {"SDL2main", "SDL2"}
-    files {"include/**.h", "src/**.cc"}
 
     filter "configurations:Debug"
         defines {"DEBUG"}
@@ -18,3 +10,20 @@ project "cookie_engine"
     filter "configurations:Release"
         defines {"NDEBUG"}
         optimize "On"
+
+project "cookie_engine"
+    kind "StaticLib"
+    targetdir "bin/%{cfg.buildcfg}"
+    location "build"
+
+    includedirs {"include/cookie"}
+    files {"include/**.h", "src/**.cc"}
+
+project "cookie_engine_test"
+    kind "ConsoleApp"
+    targetdir "test/bin/%{cfg.buildcfg}"
+    location "test/build"
+
+    includedirs {"include"}
+    links {"cookie_engine"}
+    files {"test/**.h", "test/**.cc"}
