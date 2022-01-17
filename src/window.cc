@@ -41,19 +41,44 @@ namespace cookie
     {
         if (window_ != nullptr)
             SDL_DestroyWindow(window_);
-
         if (renderer_ != nullptr)
             SDL_DestroyRenderer(renderer_);
     }
 
+    bool Window::set_draw_color(const SDL_Color &color)
+    {
+        if (SDL_SetRenderDrawColor(renderer_, color.r, color.g, color.b, color.a) < 0)
+        {
+            log::SdlError("Gagal mengatur warna menggambar");
+            return false;
+        }
+        return true;
+    }
+
     bool Window::Fill(const SDL_Color &color)
     {
-        return (SDL_SetRenderDrawColor(renderer_, color.r, color.g, color.b, color.a) == 0 &&
-                SDL_RenderClear(renderer_) == 0);
+        if (!set_draw_color(color))
+            return false;
+        if (SDL_RenderClear(renderer_) < 0)
+        {
+            log::SdlError("Gagal membersihkan window");
+            return false;
+        }
+        return true;
     }
 
     void Window::Update()
     {
         SDL_RenderPresent(renderer_);
+    }
+
+    bool Window::DrawTexture(SDL_Texture *texture, const SDL_Rect *src_rect, const SDL_Rect *dst_rect)
+    {
+        if (SDL_RenderCopy(renderer_, texture, src_rect, dst_rect) < 0)
+        {
+            log::SdlError("Gagal menggambar teksture");
+            return false;
+        }
+        return true;
     }
 }
