@@ -5,7 +5,6 @@
 
 namespace cookie
 {
-
     class Surface
     {
     private:

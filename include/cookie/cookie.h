@@ -4,3 +4,4 @@
 #include "initializer.h"
 #include "window.h"
 #include "surface.h"
+#include "texture.h"
