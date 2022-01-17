@@ -1,7 +1,7 @@
 workspace "cookie-engine"
     configurations {"Debug", "Release"}
     language "C++"
-    links {"SDL2main", "SDL2"}
+    links {"SDL2", "SDL2_image"}
 
     filter "configurations:Debug"
         defines {"DEBUG"}
@@ -20,10 +20,10 @@ project "cookie_engine"
     files {"include/**.h", "src/**.cc"}
 
 project "cookie_engine_test"
-    kind "ConsoleApp"
+    kind "WindowedApp"
     targetdir "test/bin/%{cfg.buildcfg}"
     location "test/build"
 
     includedirs {"include"}
-    links {"cookie_engine"}
+    links {"SDL2main", "cookie_engine"}
     files {"test/**.h", "test/**.cc"}
