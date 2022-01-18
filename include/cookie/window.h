@@ -21,12 +21,17 @@ namespace cookie
         Window(const std::string &title, int w, int h);
         ~Window();
 
+        // \return true jika berhasil dan false jika gagal
         bool Init(const std::string &title, int w, int h);
+        // \return true jika berhasil dan false jika gagal
         bool Fill(const SDL_Color &color);
         void Update();
 
+        // \return true jika berhasil dan false jika gagal
         bool DrawTexture(SDL_Texture *texture, const SDL_Rect *src_rect, const SDL_Rect *dst_rect);
+        // \return true jika berhasil dan false jika gagal
         bool DrawFillRect(const SDL_Rect &rect, const SDL_Color &color);
+        // \return true jika berhasil dan false jika gagal
         bool set_draw_color(const SDL_Color &color);
 
         operator SDL_Window *() { return window_; }
