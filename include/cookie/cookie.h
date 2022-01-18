@@ -6,3 +6,4 @@
 #include "surface.h"
 #include "texture.h"
 #include "rect.h"
+#include "vector2.h"
