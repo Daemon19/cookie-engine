@@ -12,4 +12,15 @@ namespace cookie
         return (x < other.right() && right() > other.x &&
                 y < other.bottom() && bottom() > other.y);
     }
+
+    void Rect::Move(const Vector2 &movement)
+    {
+        set_pos(pos() + movement);
+    }
+
+    void Rect::set_pos(const Vector2 &pos)
+    {
+        x = pos.x;
+        y = pos.y;
+    }
 }
