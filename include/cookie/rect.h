@@ -13,6 +13,7 @@ namespace cookie
 
         Rect() = default;
         Rect(float x, float y, int w, int h);
+        Rect(const Vector2 &pos, const Vector2 &size);
 
         bool CollideRect(const Rect &other) const;
         void Move(const Vector2 &movement);
@@ -36,5 +37,8 @@ namespace cookie
 
         Vector2 pos() const { return Vector2(x, y); }
         void set_pos(const Vector2 &value);
+
+        Vector2 size() const { return Vector2(w, h); }
+        void set_size(const Vector2 &value);
     };
 }

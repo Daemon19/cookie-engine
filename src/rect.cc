@@ -7,6 +7,11 @@ namespace cookie
     {
     }
 
+    Rect::Rect(const Vector2 &pos, const Vector2 &size)
+        : Rect(pos.x, pos.y, size.x, size.y)
+    {
+    }
+
     bool Rect::CollideRect(const Rect &other) const
     {
         return (x < other.right() && right() > other.x &&
@@ -28,5 +33,11 @@ namespace cookie
     {
         set_centerx(value.x);
         set_centery(value.y);
+    }
+
+    void Rect::set_size(const Vector2 &value)
+    {
+        w = value.x;
+        h = value.y;
     }
 }
