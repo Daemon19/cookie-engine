@@ -18,9 +18,15 @@ namespace cookie
         set_pos(pos() + movement);
     }
 
-    void Rect::set_pos(const Vector2 &pos)
+    void Rect::set_pos(const Vector2 &value)
     {
-        x = pos.x;
-        y = pos.y;
+        x = value.x;
+        y = value.y;
+    }
+
+    void Rect::set_center(const Vector2 &value)
+    {
+        set_centerx(value.x);
+        set_centery(value.y);
     }
 }

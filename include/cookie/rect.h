@@ -25,7 +25,16 @@ namespace cookie
         float bottom() const { return y + h; }
         void set_bottom(float value) { y = value - h; }
 
+        float centerx() const { return x + w / 2.0f; }
+        void set_centerx(float value) { x = value - w / 2.0f; }
+
+        float centery() const { return y + h / 2.0f; }
+        void set_centery(float value) { y = value - h / 2.0f; }
+
+        Vector2 center() const { return Vector2(centerx(), centery()); }
+        void set_center(const Vector2 &value);
+
         Vector2 pos() const { return Vector2(x, y); }
-        void set_pos(const Vector2 &pos);
+        void set_pos(const Vector2 &value);
     };
 }
