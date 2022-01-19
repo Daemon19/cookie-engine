@@ -11,26 +11,34 @@ namespace cookie
     Surface::Surface(SDL_Surface *surface)
     {
         if (!Init(surface))
+        {
             throw std::runtime_error("Gagal membuat objek Surface");
+        }
     }
 
     Surface::Surface(const std::string &file_path)
     {
         if (!Init(file_path))
+        {
             throw std::runtime_error("Gagal membuat objek Surface");
+        }
     }
 
     Surface::~Surface()
     {
         if (surface_ != nullptr)
+        {
             SDL_FreeSurface(surface_);
+        }
     }
 
     bool Surface::Init(SDL_Surface *surface)
     {
         surface_ = surface;
         if (surface_ == nullptr)
+        {
             log::Error("Gagal membuat permukaan : parameter surface tidak boleh NULL");
+        }
         return surface_ != nullptr;
     }
 
@@ -38,7 +46,9 @@ namespace cookie
     {
         surface_ = IMG_Load(file_path.c_str());
         if (surface_ == nullptr)
+        {
             log::SdlError("Gagal memuat gambar");
+        }
         return surface_ != nullptr;
     }
 
@@ -72,9 +82,13 @@ namespace cookie
 
         case 3:
             if (SDL_BYTEORDER == SDL_BIG_ENDIAN)
+            {
                 return p[0] << 16 | p[1] << 8 | p[2];
+            }
             else
+            {
                 return p[0] | p[1] << 8 | p[2] << 16;
+            }
             break;
 
         case 4:

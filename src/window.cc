@@ -34,15 +34,21 @@ namespace cookie
     Window::Window(const std::string &title, int w, int h)
     {
         if (!Init(title, w, h))
+        {
             throw std::runtime_error("Gagal membuat objek Window");
+        }
     }
 
     Window::~Window()
     {
         if (window_ != nullptr)
+        {
             SDL_DestroyWindow(window_);
+        }
         if (renderer_ != nullptr)
+        {
             SDL_DestroyRenderer(renderer_);
+        }
     }
 
     bool Window::set_draw_color(const SDL_Color &color)
@@ -58,7 +64,9 @@ namespace cookie
     bool Window::Fill(const SDL_Color &color)
     {
         if (!set_draw_color(color))
+        {
             return false;
+        }
         if (SDL_RenderClear(renderer_) < 0)
         {
             log::SdlError("Gagal membersihkan window");
@@ -85,7 +93,9 @@ namespace cookie
     bool Window::DrawFillRect(const SDL_Rect &rect, const SDL_Color &color)
     {
         if (!set_draw_color(color))
+        {
             return false;
+        }
         if (SDL_RenderFillRect(renderer_, &rect) < 0)
         {
             log::SdlError("Gagal menggambar kotak terisi");

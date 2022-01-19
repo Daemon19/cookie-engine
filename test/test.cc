@@ -1,5 +1,5 @@
-#include <cookie/cookie.h>
 #include <SDL2/SDL.h>
+#include <cookie/cookie.h>
 
 int main()
 {
@@ -25,7 +25,9 @@ int main()
         while (SDL_PollEvent(&e))
         {
             if (e.type == SDL_QUIT)
+            {
                 game_running = false;
+            }
         }
 
         window.Fill(kBackgroundColor);
