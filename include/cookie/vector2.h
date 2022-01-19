@@ -1,5 +1,7 @@
 #pragma once
 
+#include <iostream>
+
 namespace cookie
 {
     struct Vector2
@@ -20,3 +22,5 @@ namespace cookie
         void operator/=(float scalar) { *this = *this / scalar; }
     };
 }
+
+std::ostream &operator<<(std::ostream &stream, const cookie::Vector2 &vector);

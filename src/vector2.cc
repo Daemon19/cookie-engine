@@ -27,3 +27,9 @@ namespace cookie
         return Vector2(x / scalar, y / scalar);
     }
 }
+
+std::ostream &operator<<(std::ostream &stream, const cookie::Vector2 &vector)
+{
+    stream << "<Vector2(" << vector.x << ", " << vector.y << ")>";
+    return stream;
+}
