@@ -29,21 +29,21 @@ namespace cookie
         set_pos(pos() + movement);
     }
 
-    void Rect::set_pos(const Vector2 &value)
+    void Rect::set_pos(float x, float y)
     {
-        x = value.x;
-        y = value.y;
+        this->x = x;
+        this->y = y;
     }
 
-    void Rect::set_center(const Vector2 &value)
+    void Rect::set_center(float x, float y)
     {
-        set_centerx(value.x);
-        set_centery(value.y);
+        set_centerx(x);
+        set_centery(y);
     }
 
-    void Rect::set_size(const Vector2 &value)
+    void Rect::set_size(float w, float h)
     {
-        w = value.x;
-        h = value.y;
+        this->w = w;
+        this->h = h;
     }
 }

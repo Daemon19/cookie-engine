@@ -38,12 +38,15 @@ namespace cookie
         void set_centery(float value) { y = value - h / 2.0f; }
 
         Vector2 center() const { return Vector2(centerx(), centery()); }
-        void set_center(const Vector2 &value);
+        void set_center(float x, float y);
+        void set_center(const Vector2 &value) { set_center(value.x, value.y); }
 
         Vector2 pos() const { return Vector2(x, y); }
-        void set_pos(const Vector2 &value);
+        void set_pos(float x, float y);
+        void set_pos(const Vector2 &value) { set_pos(value.x, value.y); }
 
         Vector2 size() const { return Vector2(w, h); }
-        void set_size(const Vector2 &value);
+        void set_size(float w, float h);
+        void set_size(const Vector2 &value) { set_size(value.x, value.y); }
     };
 }
