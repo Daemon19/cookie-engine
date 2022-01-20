@@ -12,10 +12,16 @@ namespace cookie
     {
     }
 
-    bool Rect::CollideRect(const Rect &other) const
+    bool Rect::CollideRect(float x, float y, int w, int h) const
     {
-        return (x < other.right() && right() > other.x &&
-                y < other.bottom() && bottom() > other.y);
+        return (this->x < x + w && right() > x &&
+                this->y < y + h && bottom() > y);
+    }
+
+    bool Rect::CollidePoint(float x, float y) const
+    {
+        return (this->x < x && right() > x &&
+                this->y < y && bottom() > y);
     }
 
     void Rect::Move(const Vector2 &movement)

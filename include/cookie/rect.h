@@ -15,7 +15,12 @@ namespace cookie
         Rect(float x, float y, int w, int h);
         Rect(const Vector2 &pos, const Vector2 &size);
 
-        bool CollideRect(const Rect &other) const;
+        bool CollideRect(float x, float y, int w, int h) const;
+        bool CollideRect(const Rect &rect) const { return CollideRect(rect.x, rect.y, rect.w, rect.h); }
+
+        bool CollidePoint(float x, float y) const;
+        bool CollidePoint(const Vector2 &point) const { return CollidePoint(point.x, point.y); }
+
         void Move(const Vector2 &movement);
 
         operator SDL_Rect() const { return SDL_Rect{(int)x, (int)y, w, h}; }
