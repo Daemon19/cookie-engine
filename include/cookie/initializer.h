@@ -25,10 +25,7 @@ namespace cookie
 
         ~Initializer();
 
-        bool static InitSdl(SdlFlag flags);
-        bool static InitSdlImage(ImgFlag flags);
-
-    private:
-        Initializer() {}
+        static bool InitSdl(SdlFlag flags);
+        static bool InitSdlImage(ImgFlag flags);
     };
 }
