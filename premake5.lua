@@ -1,5 +1,5 @@
 workspace "cookie-engine"
-    configurations {"Debug", "Release"}
+    configurations {"Release", "Debug"}
     language "C++"
     links {"SDL2", "SDL2_image"}
 
